@@ -4,4 +4,4 @@
 
 - Nombre: Gustavo Coronel
 - Correo: gcoronelc@gmail.com
-- Blog: gcoronelc@gmail.com
+- Blog: gcoronelc.blogspot.com
