@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ejercicio</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="Número 1:"/>
+            <h:inputText value="#{controller.num1}"/><br/>
+            <h:outputText value="Operacion:"/>
+            <h:selectOneMenu  value="#{controller.operacion}">
+                <f:selectItem itemValue="+" itemLabel="Sumar"/>
+                <f:selectItem itemValue="-" itemLabel="Restar"/>
+                <f:selectItem itemValue="*" itemLabel="Multiplicar"/>
+                <f:selectItem itemValue="/" itemLabel="Dividir"/>                
+                <f:selectItem itemValue="pot" itemLabel="Potencia"/>     
+            </h:selectOneMenu ><br/>
+            <h:outputText  value="Número 2:"/>
+            <h:inputText  value="#{controller.num2}"/>
+            
+            <h:commandButton value="Procesar" action="#{controller.doOperar()}"/>
+            <br/>
+            <h:outputText value="#{controller.resultado}"/>            
+        </h:form>
+        
+    </h:body>
+</html>
+
