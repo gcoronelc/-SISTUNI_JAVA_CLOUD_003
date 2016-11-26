@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<body>
+
+	<ui:composition template="./plantilla/Plantilla.xhtml">
+
+		<ui:define name="content">
+
+			<h:form id="formData">
+
+				<h1>MANTENIMIENTO DE CLIENTES</h1>
+
+
+				<p:growl id="idMensaje" showDetail="true" showSummary="true" closable="true" />
+
+				<p:panel id="idCriterio" header="Criterio">
+					<p:panelGrid columns="5">
+
+						<p:outputLabel>Código</p:outputLabel>
+						<p:outputLabel>Paterno</p:outputLabel>
+						<p:outputLabel>Materno</p:outputLabel>
+						<p:outputLabel>Nombre</p:outputLabel>
+						<p:spacer />
+
+
+						<p:inputText id="criCodigo" value="#{clienteController.clienteCriterio.codigo}" />
+						<p:inputText id="criPaterno" value="#{clienteController.clienteCriterio.paterno}" />
+						<p:inputText id="criMaterno" value="#{clienteController.clienteCriterio.materno}" />
+						<p:inputText id="criNombre" value="#{clienteController.clienteCriterio.nombre}" />
+
+						<p:commandButton value="Consultar" 
+							process=":formData:idCriterio"
+							update="idMensaje idResultado" 
+							ajax="true"
+							actionListener="#{clienteController.doConsulta}" />
+
+					</p:panelGrid>
+					
+				</p:panel>
+
+				<p:panel id="idResultado" header="Resultado">
+
+					<p:dataTable value="#{clienteController.listaClientes}" var="r">
+
+						<p:column headerText="CODIGO">
+							<h:outputText value="#{r.codigo}" />
+						</p:column>
+
+						<p:column headerText="PATERNO">
+							<h:outputText value="#{r.paterno}" />
+						</p:column>
+
+						<p:column headerText="MATERNO">
+							<h:outputText value="#{r.materno}" />
+						</p:column>
+
+						<p:column headerText="NOMBRE">
+							<h:outputText value="#{r.nombre}" />
+						</p:column>
+
+						<p:column headerText="DNI">
+							<h:outputText value="#{r.dni}" />
+						</p:column>
+
+						<p:column headerText="EMAIL">
+							<h:outputText value="#{r.email}" />
+						</p:column>
+
+					</p:dataTable>
+
+				</p:panel>
+
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</body>
+</html>
